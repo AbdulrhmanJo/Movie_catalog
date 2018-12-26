@@ -10,30 +10,30 @@ A web application that provides a list of Movies within a variety of categories.
 
 3. Launch the Vagrant VM from inside the *vagrant* folder with:
 
-  `vagrant up`
+    `vagrant up`
 
   Then access the shell with:
 
-  `vagrant ssh`
+    `vagrant ssh`
 
 4. Move inside the catalog folder:
 
-  `cd /vagrant/catalog`
+    `cd /vagrant/catalog`
 
 5. Then run the database with:
 
-  `python database_setup.py`
+    `python database_setup.py`
 
 6. add some movies by run the seeder with:
 
-  `python seeder.py`
+    `python seeder.py`
 
 7. Now you can run the application with:
 
-  `python application.py`
+    `python application.py`
 
-  After this the web is ready for you at this URL:
+    After this the web is ready for you at this URL:
 
-  `http://localhost:8000/`
+     `http://localhost:8000/`
 
-  have fun.
+have fun.
