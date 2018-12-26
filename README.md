@@ -11,8 +11,8 @@ A web application that provides a list of Movies within a variety of categories.
 3. Launch the Vagrant VM from inside the *vagrant* folder with:
 
     `vagrant up`
-
-  Then access the shell with:
+    
+    access the shell with:
 
     `vagrant ssh`
 
