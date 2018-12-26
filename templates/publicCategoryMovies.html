@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <a href="{{url_for('newCategoryItem', category_name = category.name)}}">
+    <button>
+      <span aria-hidden="true"></span>Add Movie!
+    </button>
+  </a>
+
+  <div>
+  {% for item in items %}
+    <a href="{{url_for('showMovie', category_name = item.category.name ,item_name = item.name)}}">
+    <img src="{{item.coverUrl}}">
+    <p>
+      {{item.name}}
+      <figure class="creator">
+				<img src="{{ creator.picture}}">
+				<figcaption>{{ creator.name }}</figcaption>
+			</figure>
+    </p>
+    </a>
+  {% endfor %}
+  </div>
+
+  <div>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <strong> {{ message }} </strong>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      {% endwith %}
+  </div>
+
+{% endblock %}

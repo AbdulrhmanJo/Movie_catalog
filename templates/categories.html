@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+
+  <br>
+  <h3>Categories</h3>
+
+  <div>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+          {% for message in messages %}
+          <div class="alert alert-danger" role="alert">
+              <strong> {{ message }} </strong>
+          </div>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      {% endwith %}
+  </div>
+
+ <div class="container" style="margin:10px">
+    <div class="row">
+      <div class="card-columns">
+      {% for category in categories %}
+          <div  class="card text-white bg-dark mb-3" style="max-width: 19rem;">
+            <a href = "{{url_for('showCategoryMovies', category_name = category.name)}}">
+              <img class="card-img-top" src="{{category.cover}}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="text-white bg-dark">{{category.name}}</h5>
+              </div>
+          </div>
+       {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}

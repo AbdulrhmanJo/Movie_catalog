@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+<br>
+
+<form action="#" method = "post">
+  <h3>Edit {{item.name}}</h3>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Name</label>
+    <input type="text" maxlength="90" name="name" class="form-control" id="exampleFormControlInput1" value="{{item.name}}">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Director</label>
+    <input type="text" maxlength="50" name="directorName" class="form-control" id="exampleFormControlInput1" value="{{item.directorName}}">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Description</label>
+    <textarea class="form-control" maxlength="50" name="description" id="exampleFormControlTextarea1" rows="3">{{item.description}}</textarea>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Poster</label>
+    <input type="url" maxlength="450" name="coverUrl" class="form-control" id="exampleFormControlInput1" value="{{item.coverUrl}}">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Trailer</label>
+    <input type="url" maxlength="450" name="trailer" class="form-control" id="exampleFormControlInput1"  value="{{item.trailer}}">
+  </div>
+  <button type="submit" class="btn btn-outline-danger">Save</button>
+  <a href="{{url_for('showMovie', category_name = item.category.name, item_name = item.name)}}">
+    <button type="button" class="btn btn-outline-danger">Cancel</button>
+  </a>
+</form>
+
+
+{% endblock %}

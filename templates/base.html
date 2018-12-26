@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>Movie Catalog</title>
+	</head>
+	<body>
+		<header>
+			<nav class="navbar navbar-dark bg-dark">
+				<a class="navbar-brand" href="{{url_for('showCategories')}}">
+					<h2>Movie Catalog</h2>
+				</a>
+					{%if 'username' not in session %}
+						<a href="{{url_for('showLogin')}}">
+    					<button class="btn btn-outline-danger">Login</button>
+						</a>
+					{% else %}
+						<a href="{{url_for('disconnect')}}">
+							<button class="btn btn-outline-danger">Logout</button>
+						</a>
+					{% endif %}
+			</nav>
+		</header>
+		<div class="container">
+			{% block content %}
+			{% endblock %}
+		</div>
+	</body>
+</html>

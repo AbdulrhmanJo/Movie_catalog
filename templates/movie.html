@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+<br>
+<a href="{{url_for('showCategoryMovies', category_name = item.category.name)}}">
+  <button class="btn btn-outline-danger">
+    <span aria-hidden="true"></span>Back to category
+  </button>
+</a>
+<br>
+<br>
+
+<div class="card text-white bg-dark mb-3" style="max-width: 80rem;">
+  <div class="card-header">{{item.name}}</div>
+  <div class="card-body">
+    <h5 class="card-title">{{item.description}}</h5>
+    <p class="card-text">{{item.directorName}}</p>
+    <a href='{{item.trailer}}' class="text-white">Trailer</a>
+  </div>
+</div>
+
+
+  <a href="{{url_for('deleteCategoryItem', category_name = item.category.name , item_name=item.name)}}">
+    <button class="btn btn-outline-danger">
+      <span aria-hidden="true"></span>Delete
+    </button>
+  </a>
+
+  <a href="{{url_for('editCategoryItem', category_name = item.category.name , item_name=item.name)}}">
+    <button class="btn btn-outline-danger">
+      <span aria-hidden="true"></span>Edit
+    </button>
+  </a>
+
+  <div class = 'flash'>
+  		      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+
+          <ul>
+          {% for message in messages %}
+              <li> <strong> {{ message }} </strong> </li>
+          {% endfor %}
+          </ul>
+          {% endif %}
+      {% endwith %}
+
+  </div>
+
+{% endblock %}

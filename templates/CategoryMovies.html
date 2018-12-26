@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+
+<br>
+  <a href="{{url_for('newCategoryItem', category_name = category.name)}}">
+    <button class="btn btn-outline-danger">
+      <span aria-hidden="true"></span>Add Movie!
+    </button>
+  </a>
+  
+  <div>
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul>
+          {% for message in messages %}
+          <div class="alert alert-danger" role="alert">
+              <strong> {{ message }} </strong>
+          </div>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      {% endwith %}
+  </div>
+
+<br>
+<br>
+
+<div class="container" style="margin:10px">
+   <div class="row">
+     <div class="card-columns">
+  {% for item in items %}
+  <div class="card tcard text-white bg-dark mb-3" style="width: 18rem;">
+    <a href="{{url_for('showMovie', category_name = item.category.name ,item_name = item.name)}}">
+      <img class="card-img-top" src="{{item.coverUrl}}" alt="Card image cap">
+  <div class="card-body " >
+    <p class="card-text navbar text-white">
+      {{item.name}}
+
+		<img src="{{creator.picture}}" style="width: 2rem;">
+    </p>
+  </div>
+  </div>
+  {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock %}

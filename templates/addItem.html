@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+<br>
+
+<form action="#" method = "post">
+  <h3>New Movie</h3>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Name</label>
+    <input type="text" maxlength="90" name="name" class="form-control" id="exampleFormControlInput1" placeholder="Name of the Movie">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Director</label>
+    <input type="text" maxlength="50" name="directorName" class="form-control" id="exampleFormControlInput1" placeholder="Director Name">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Description</label>
+    <textarea class="form-control" maxlength="50" name="description" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Poster</label>
+    <input type="url" maxlength="450" name="coverUrl" class="form-control" id="exampleFormControlInput1" placeholder="http://www.example.com">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Trailer</label>
+    <input type="url" maxlength="450" name="trailer" class="form-control" id="exampleFormControlInput1" placeholder="http://www.example.com">
+  </div>
+  <button type="submit" class="btn btn-outline-danger">ADD!</button>
+  <a href="{{url_for('showCategoryMovies', category_name = category_name)}}">
+    <button type="button" class="btn btn-outline-danger">Cancel</button>
+  </a>
+</form>
+
+{% endblock %}

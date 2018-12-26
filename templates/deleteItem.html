@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<br>
+<br>
+<h4> Are you sure you want to delete {{item.name}} ?</h4>
+
+<form action="#" method = 'post'>
+  <a href="{{url_for('showMovie', category_name = item.category.name, item_name = item.name)}}">
+    <button class="btn btn-outline-danger" type="button">Cancel</button>
+  </a>
+    <input class="btn btn-outline-danger" type="submit" value="Delete">
+</form>
+
+
+
+
+{% endblock %}
