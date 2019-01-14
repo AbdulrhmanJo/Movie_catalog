@@ -38,10 +38,10 @@ class CategoryItem(Base):
 
     name = Column(String(90), nullable=False)
     id = Column(Integer, primary_key=True)
-    description = Column(String(250))
+    description = Column(String(800))
     directorName = Column(String(250), nullable=False)
-    coverUrl = Column(String(450), nullable=False)
-    trailer = Column(String(450), nullable=False)
+    coverUrl = Column(String(900), nullable=False)
+    trailer = Column(String(900), nullable=False)
     category_id = Column(Integer, ForeignKey('category.id'))
     category = relationship(Category)
     user_id = Column(Integer, ForeignKey('user.id'))
